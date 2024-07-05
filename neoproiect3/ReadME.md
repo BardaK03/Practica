@@ -19,8 +19,8 @@ CREATE TABLE movies (
     FOREIGN KEY (category_id) REFERENCES categories(id)
     );
 CREATE TABLE categories (
-  'id' INT NOT NULL AUTO_INCREMENT,
-  'name' VARCHAR(100) NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
   PRIMARY KEY (id)
 );
 
