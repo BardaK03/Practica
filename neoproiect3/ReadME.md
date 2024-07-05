@@ -10,6 +10,19 @@ PHP 7.0 or higher
 MySQL 5.6 or higher
 A CSV file named netflix_titles.csv in the same directory as the script (optional)
 Database Configuration
+Creation of tables in a database:
+CREATE TABLE movies (
+    ->   `id` INT PRIMARY KEY AUTO_INCREMENT,
+    ->   `title` VARCHAR(255) NOT NULL,
+    ->   `release_year` YEAR NOT NULL,
+    ->   `category_id` INT,
+    ->   FOREIGN KEY (category_id) REFERENCES categories(id)
+    -> );
+CREATE TABLE categories (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id)
+);
 
 The script connects to a MySQL database using the following credentials:
 
@@ -26,26 +39,7 @@ offset: The offset of the first movie to retrieve (default: 0)
 limit: The number of movies to retrieve (default: 10)
 The API returns a JSON response with the following structure:
 
-json
 
-Verify
-
-Open In Editor
-Edit
-Copy code
-[
-  {
-    "id": 1,
-    "title": "Movie Title",
-    "category": "Category Name"
-  },
-  {
-    "id": 2,
-    "title": "Another Movie",
-    "category": "Different Category"
-  },
-  ...
-]
 CSV Import
 
 The script can also import movie data from a CSV file named netflix_titles.csv in the same directory. The CSV file should have the following structure:
