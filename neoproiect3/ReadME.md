@@ -22,7 +22,8 @@ CREATE TABLE categories (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(100) NOT NULL,
   PRIMARY KEY (id)
-);`
+);
+`
 
 The script connects to a MySQL database using the following credentials:
 
