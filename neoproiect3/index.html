@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies Table</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Movies Table</h1>
+    <form id="filter-form">
+      <label for="limit">Limit:</label>
+      <input type="number" id="limit" name="limit" value="15" />
+      <label for="offset">Offset:</label>
+      <input type="number" id="offset" name="offset" value="0" />
+      <button type="submit">Submit</button>
+    </form>
+    <table id="movies-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody id="movies-table-body"></tbody>
+    </table>
+
+    <script src="script.js"></script>
+  </body>
+</html>
