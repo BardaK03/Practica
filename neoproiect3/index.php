@@ -1,14 +1,12 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "parola";
-$dbname = "movies";
-
+require_once 'cridentials.php';
 $conn = new mysqli($servername, $username, $password, $dbname);
-
 if ($conn->connect_error) {
   die("Connection failed: ". $conn->connect_error);
 }
+
+require_once 'insert.php';
+insertData($conn); // Pass the $conn variable to the insert.php file
 
 $offset = isset($_GET['offset']) ? (int) $_GET['offset'] : 0;
 $limit = isset($_GET['limit']) ? (int) $_GET['limit'] : 10;
@@ -29,42 +27,3 @@ while ($row = $result->fetch_assoc()) {
 
 header('Content-Type: application/json');
 echo json_encode($movies, JSON_PRETTY_PRINT);
-
-// if ($conn->connect_error) {
-//   die("Connection failed: ". $conn->connect_error);
-// }
-// echo "Connected to database: $dbname";
-
-// $csv_file = 'netflix_titles.csv';
-
-// if (($handle = fopen($csv_file, 'r'))!== FALSE) {
-//   $categories = array();
-//   while (($data = fgetcsv($handle, 1000, ","))!== FALSE) {
-//     $category_name = trim(explode(' ', $data[10])[0]); // Get first word of category name
-//     if (!in_array($category_name, $categories)) {
-//       $stmt = $conn->prepare("INSERT INTO categories (name) VALUES (?)");
-//       $stmt->bind_param("s", $category_name);
-//       $stmt->execute();
-//       $category_id = $conn->insert_id; // get the auto-generated category ID
-//       $categories[] = $category_name;
-//       echo "Inserted category: $category_name\n";
-//     } else {
-//       $stmt = $conn->prepare("SELECT id FROM categories WHERE name = ?");
-//       $stmt->bind_param("s", $category_name);
-//       $stmt->execute();
-//       $result = $stmt->get_result();
-//       $row = $result->fetch_assoc();
-//       $category_id = $row['id'];
-//     }
-
-//     $title = $data[2];
-//     $release_year = (int) $data[7]; // Convert to integer
-
-//     $stmt = $conn->prepare("INSERT INTO movies (title, release_year, category_id) VALUES (?,?,?)");
-//     $stmt->bind_param("sii", $title, $release_year, $category_id);
-//     $stmt->execute();
-//     echo "Inserted movie: $title\n";
-//   }
-//   fclose($handle);
-// }
-// ?>
