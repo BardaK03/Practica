@@ -8,7 +8,7 @@ Requirements
 
 PHP 7.0 or higher
 MySQL 5.6 or higher
-A CSV file named netflix_titles.csv in the same directory as the script (optional)
+A CSV file named BETA_netflix_titles.csv in the same directory as the script (optional)
 Database Configuration
 Creation of tables in a database:
 ``CREATE TABLE movies (
