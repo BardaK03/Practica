@@ -11,7 +11,7 @@ MySQL 5.6 or higher
 A CSV file named netflix_titles.csv in the same directory as the script (optional)
 Database Configuration
 Creation of tables in a database:
-CREATE TABLE movies (
+""CREATE TABLE movies (
     `id` INT PRIMARY KEY AUTO_INCREMENT,
      `title` VARCHAR(255) NOT NULL,
      `release_year` YEAR NOT NULL,
@@ -23,6 +23,7 @@ CREATE TABLE categories (
   name VARCHAR(100) NOT NULL,
   PRIMARY KEY (id)
 );
+""
 
 The script connects to a MySQL database using the following credentials:
 
